@@ -1,0 +1,15 @@
+{
+  "name": "validator",
+  "version": "0.0.1",
+  "authors": [
+    "krzysztof.sopa@gmail.com"
+  ],
+  "description": "Simple library for JSON object validation",
+  "main": "./build/validator.js",
+  "keywords": [
+    "json",
+    "object",
+    "validator"
+  ],
+  "license": "MIT"
+}
