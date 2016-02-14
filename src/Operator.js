@@ -1,6 +1,8 @@
-class Operator {
-  constructor(token) {
-    this.token = token;
+import Token from './Token';
+
+class Operator extends Token {
+  constructor(value) {
+    super(value);
     this.operators = new Map();
     this.operators.set('+', 0);
     this.operators.set('-', 0);
@@ -12,43 +14,39 @@ class Operator {
   }
 
   isRightAssociative() {
-    return '^' == this.token;
+    return '^' == this.value;
   }
 
   isLeftAssociative() {
-    return '*' == this.token || '/' == this.token || '+' == this.token || '-' == this.token;
+    return '*' == this.value || '/' == this.value || '+' == this.value || '-' == this.value;
   }
 
   isLessThan(operatorToCompare) {
-    if (operatorToCompare.getToken() == '(') {
+    if (operatorToCompare.isLeftParenthesis()) {
       return false;
     }
 
-    return this.operators.get(this.token) - this.operators.get(operatorToCompare.getToken()) < 0;
+    return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) < 0;
   }
 
   isLessOrEqualThan(operatorToCompare) {
-    if (operatorToCompare.getToken() == '(') {
+    if (operatorToCompare.isLeftParenthesis()) {
       return false;
     }
 
-    return this.operators.get(this.token) - this.operators.get(operatorToCompare.getToken()) <= 0;
+    return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) <= 0;
   }
 
   isLeftParenthesis() {
-    return this.token == '(';
+    return this.value == '(';
   }
 
   isRightParenthesis() {
-    return this.token == ')';
-  }
-  
-  getToken() {
-    return this.token;
+    return this.value == ')';
   }
 
-  static isValidOperatorToken(token) {
-    return '*' == token || '/' == token || '+' == token || '-' == token || '(' == token || ')' == token || '^' == token;
+  static isValidOperatorToken(value) {
+    return '*' == value || '/' == value || '+' == value || '-' == value || '(' == value || ')' == value || '^' == value;
   }
 }
 
