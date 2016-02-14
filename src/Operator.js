@@ -1,4 +1,5 @@
 import Token from './Token';
+import Number from './Number';
 
 class Operator extends Token {
   constructor(value) {
@@ -47,6 +48,28 @@ class Operator extends Token {
 
   static isValidOperatorToken(value) {
     return '*' == value || '/' == value || '+' == value || '-' == value || '(' == value || ')' == value || '^' == value;
+  }
+
+  evaluate(numberOne, numberTwo) {
+    if (this.value == '*') {
+      return new Number(numberOne.getValue() * numberTwo.getValue());
+    }
+
+    if (this.value == '/') {
+      return new Number(numberOne.getValue() / numberTwo.getValue());
+    }
+
+    if (this.value == '-') {
+      return new Number(numberOne.getValue() - numberTwo.getValue());
+    }
+
+    if (this.value == '+') {
+      return new Number(numberOne.getValue() + numberTwo.getValue());
+    }
+
+    if (this.value == '^') {
+      return new Number(Math.pow(numberOne.getValue(), numberTwo.getValue()));
+    }
   }
 }
 
