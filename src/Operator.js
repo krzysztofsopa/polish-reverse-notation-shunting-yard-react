@@ -52,23 +52,23 @@ class Operator extends Token {
 
   evaluate(numberOne, numberTwo) {
     if (this.value == '*') {
-      return new Number(numberOne.getValue() * numberTwo.getValue());
+      return new Number(numberTwo.getValue() * numberOne.getValue());
     }
 
     if (this.value == '/') {
-      return new Number(numberOne.getValue() / numberTwo.getValue());
+      return new Number(numberTwo.getValue() / numberOne.getValue());
     }
 
     if (this.value == '-') {
-      return new Number(numberOne.getValue() - numberTwo.getValue());
+      return new Number(numberTwo.getValue() - numberOne.getValue());
     }
 
     if (this.value == '+') {
-      return new Number(numberOne.getValue() + numberTwo.getValue());
+      return new Number(numberTwo.getValue() + numberOne.getValue());
     }
 
     if (this.value == '^') {
-      return new Number(Math.pow(numberOne.getValue(), numberTwo.getValue()));
+      return new Number(Math.pow(numberTwo.getValue(), numberOne.getValue()));
     }
   }
 }

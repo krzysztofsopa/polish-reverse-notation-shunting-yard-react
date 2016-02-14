@@ -7,7 +7,6 @@ class ReversePolishNotationAlgorithm {
     let stack = new Stack();
 
     while (!input.isEmpty()) {
-
       let token = input.pop();
       if (token instanceof Number) {
         stack.push(token);
@@ -15,10 +14,7 @@ class ReversePolishNotationAlgorithm {
       }
 
       if (token instanceof Operator) {
-        let one = stack.pop();
-        let two = stack.pop();
-
-        stack.push(token.evaluate(two, one));
+        stack.push(token.evaluate(stack.pop(), stack.pop()));
         continue;
       }
     }

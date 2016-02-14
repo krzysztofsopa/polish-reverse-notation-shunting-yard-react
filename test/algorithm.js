@@ -152,4 +152,5 @@ describe('ShuntingYardAlgorithm', function() {
       assert.equal(output.pop().getValue(), '*');
     });
   });
+
 });

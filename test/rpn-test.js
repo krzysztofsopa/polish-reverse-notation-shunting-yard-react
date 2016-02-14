@@ -99,4 +99,39 @@ describe('ReversePolishNotationAlgorithm', function() {
     });
   });
 
+  describe('Test calculate() should calculate correct value from expression', function () {
+    let input = new Stack();
+    input.push(new Operator('('));
+    input.push(new Operator('('));
+    input.push(new Operator('('));
+    input.push(new Operator('('));
+    input.push(new Operator('('));
+    input.push(new Number(3));
+    input.push(new Operator('-'));
+    input.push(new Number(1));
+    input.push(new Operator(')'));
+    input.push(new Operator(')'));
+    input.push(new Operator('^'));
+    input.push(new Number(2));
+    input.push(new Operator('-'));
+    input.push(new Number(1));
+    input.push(new Operator(')'));
+    input.push(new Operator('^'));
+    input.push(new Number(3));
+    input.push(new Operator(')'));
+    input.push(new Operator('-'));
+    input.push(new Number(7));
+    input.push(new Operator(')'));
+    input.push(new Operator('*'));
+    input.push(new Number(5));
+    input.push(new Operator('^'));
+    input.push(new Number(2));
+
+
+    it('It should return correct RPN representation', function () {
+      let output = ShuntingYardAlgorithm.infixToRpn(input.reverse());
+      let value = ReversePolishNotationAlgorithm.calculate(output.reverse());
+      assert.equal(value, 500);
+    });
+  });
 });
