@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "budo src/Validator.js:build.js --live --dir static -t babelify | garnish",
-    "prod": "browserify src/Validator.js --t babelify | uglifyjs -nm > build/validator.js"
+    "prod": "browserify src/Validator.js --t babelify | uglifyjs -nm > build/validator.js",
+    "test": "node node_modules/.bin/mocha --compilers js:babel/register"
   },
   "keywords": [
     "es6"
@@ -22,6 +23,7 @@
     "watchify": "^3.1.2"
   },
   "dependencies": {
-    "domready": "^1.0.7"
+    "domready": "^1.0.7",
+    "mocha": "^2.4.5"
   }
 }
