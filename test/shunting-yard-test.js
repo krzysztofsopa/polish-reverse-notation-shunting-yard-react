@@ -1,11 +1,10 @@
 var assert = require('assert');
-var Stack = require('../src/Stack');
-var Number = require('../src/Number');
-var Operator = require('../src/Operator');
-var ShuntingYardAlgorithm = require('../src/ShuntingYardAlgorithm');
+var Stack = require('../src/utils/stack');
+var Number = require('../src/models/number');
+var Operator = require('../src/models/operator');
+var ShuntingYardAlgorithm = require('../src/algorithms/shunting-yard');
 
-describe('ShuntingYardAlgorithm', function() {
-
+describe('ShuntingYard', function() {
   describe('Test infixToRpn() method', function () {
     let input = new Stack();
     input.push(new Number(3));
@@ -152,5 +151,4 @@ describe('ShuntingYardAlgorithm', function() {
       assert.equal(output.pop().getValue(), '*');
     });
   });
-
 });

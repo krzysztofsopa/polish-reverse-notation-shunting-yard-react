@@ -1,8 +1,8 @@
-import Stack from './Stack';
-import Operator from './Operator';
-import Number from './Number';
+import Stack from '../utils/stack';
+import Operator from '../models/operator';
+import Number from '../models/number';
 
-class ReversePolishNotationAlgorithm {
+class ReversePolishNotation {
   calculate(input) {
     let stack = new Stack();
 
@@ -15,6 +15,7 @@ class ReversePolishNotationAlgorithm {
 
       if (token instanceof Operator) {
         stack.push(token.evaluate(stack.pop(), stack.pop()));
+
         continue;
       }
     }
@@ -23,4 +24,4 @@ class ReversePolishNotationAlgorithm {
   }
 }
 
-module.exports = new ReversePolishNotationAlgorithm();
+module.exports = new ReversePolishNotation();

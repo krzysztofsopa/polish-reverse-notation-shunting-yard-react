@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Tokenizer = require('../src/Tokenizer');
+var Tokenizer = require('../src/utils/tokenizer');
 
 describe('Tokenizer', function() {
   describe('Test evaluate() method', function () {
@@ -50,6 +50,5 @@ describe('Tokenizer', function() {
       assert.equal(output.pop().getValue(), '^');
       assert.equal(output.pop().getValue(), 5);
     });
-
   });
 });

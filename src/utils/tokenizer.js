@@ -1,6 +1,6 @@
-import Stack from './Stack';
-import Number from './Number';
-import Operator from './Operator';
+import Stack from './stack';
+import Number from '../models/number';
+import Operator from '../models/operator';
 
 class Tokenizer {
   evaluate (expression) {

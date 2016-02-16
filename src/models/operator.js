@@ -1,5 +1,5 @@
-import Token from './Token';
-import Number from './Number';
+import Token from './token';
+import Number from './number';
 
 class Operator extends Token {
   constructor(value) {
@@ -9,9 +9,9 @@ class Operator extends Token {
     this.operators.set('-', 0);
     this.operators.set('*', 1);
     this.operators.set('/', 1);
-    this.operators.set('(', 2);
-    this.operators.set(')', 2);
-    this.operators.set('^', 3);
+    this.operators.set('^', 2);
+    this.operators.set('(', 3);
+    this.operators.set(')', 3);
   }
 
   isRightAssociative() {
@@ -23,19 +23,23 @@ class Operator extends Token {
   }
 
   isLessThan(operatorToCompare) {
-    if (operatorToCompare.isLeftParenthesis()) {
-      return false;
-    }
-
     return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) < 0;
   }
 
-  isLessOrEqualThan(operatorToCompare) {
-    if (operatorToCompare.isLeftParenthesis()) {
-      return false;
-    }
+  isGreaterThan(operatorToCompare) {
+    return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) > 0;
+  }
 
+  isLessOrEqualThan(operatorToCompare) {
     return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) <= 0;
+  }
+
+  isGreaterOrEqualTo(operatorToCompare) {
+    return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) >= 0;
+  }
+
+  isEqualTo(operatorToCompare) {
+    return this.operators.get(this.value) - this.operators.get(operatorToCompare.getValue()) == 0;
   }
 
   isLeftParenthesis() {
@@ -64,7 +68,7 @@ class Operator extends Token {
     }
 
     if (this.value == '+') {
-      return new Number(numberTwo.getValue() + numberOne.getValue());
+      return new Number(parseFloat(numberTwo.getValue()) + parseFloat(numberOne.getValue()));
     }
 
     if (this.value == '^') {

@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Stack = require('../src/Stack');
+var Stack = require('../src/utils/stack');
 
 describe('Stack', function() {
   describe('Test pop() method', function () {

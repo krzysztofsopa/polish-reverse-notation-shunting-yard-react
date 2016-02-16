@@ -1,12 +1,11 @@
 var assert = require('assert');
-var Stack = require('../src/Stack');
-var Number = require('../src/Number');
-var Operator = require('../src/Operator');
-var ShuntingYardAlgorithm = require('../src/ShuntingYardAlgorithm');
-var ReversePolishNotationAlgorithm = require('../src/ReversePolishNotationAlgorithm');
+var Stack = require('../src/utils/stack');
+var Number = require('../src/models/number');
+var Operator = require('../src/models/operator');
+var ShuntingYardAlgorithm = require('../src/algorithms/shunting-yard');
+var ReversePolishNotationAlgorithm = require('../src/algorithms/reverse-polish-notation');
 
 describe('ReversePolishNotationAlgorithm', function() {
-
   describe('Test calculate() should calculate correct value from expression', function () {
     let input = new Stack();
     input.push(new Number(3));
@@ -75,7 +74,6 @@ describe('ReversePolishNotationAlgorithm', function() {
     });
   });
 
-  // 10*(2*(3-1))^2 = 160
   describe('Test calculate() should calculate correct value from expression', function () {
     let input = new Stack();
     input.push(new Number(10));

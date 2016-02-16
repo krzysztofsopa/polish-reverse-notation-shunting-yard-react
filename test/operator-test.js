@@ -1,9 +1,8 @@
 var assert = require('assert');
-var Operator = require('../src/Operator');
+var Operator = require('../src/models/operator');
 
 describe('Operator', function() {
   describe('Test methods', function () {
-
     it('It should return correct boolean for +, -, /, *, ^ operators associativness', function () {
       assert.equal((new Operator('+')).isLeftAssociative(), true);
       assert.equal((new Operator('+')).isRightAssociative(), false);
